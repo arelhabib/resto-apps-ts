@@ -5,11 +5,13 @@ import { getRestaurant } from "../../../axios/restaurant"
 import { restaurantModel } from "../../../dataModel/restaurantModel"
 
 const Food = (props: { itemId: number }) => {
-  const [editForm, seteditForm] = useState({} as foodForm)
+  const [editForm, seteditForm] = useState<foodForm | null>(null)
   const [restaurantList, setrestaurantList] = useState<restaurantModel[]>([])
 
   const submitHandler = () => {
-    editFood(props.itemId, editForm, (cb) => cb && window.location.replace('/restaurants'))
+    if (editForm) {
+      editFood(props.itemId, editForm, (cb) => cb && window.location.replace('/restaurants'))
+    }
   }
 
   useEffect(() => {
@@ -44,18 +46,19 @@ const Food = (props: { itemId: number }) => {
                 onChange={(e) => seteditForm({ ...editForm, price: Number(e.target.value) })}
               />
             </div>
-            <div className="mb-3"></div>
-            <label htmlFor="restaurantId">Cabang Restaurant</label>
-            <select className="form-select" id="restaurantId" required value={editForm ? editForm.restaurantId : ""}
-              onChange={(e) => seteditForm({ ...editForm, restaurantId: Number(e.target.value) })}
-            >
-              <option disabled selected hidden value="">Pilih opsi</option>
-              {restaurantList && restaurantList.map((item) => {
-                return (
-                  <option key={item.id} value={item.id}>{item.name}</option>
-                )
-              })}
-            </select>
+            <div className="mb-3">
+              <label htmlFor="restaurantId">Cabang Restaurant</label>
+              <select className="form-select" id="restaurantId" required defaultValue={editForm.restaurantId ? editForm.restaurantId : ""}
+                onChange={(e) => seteditForm({ ...editForm, restaurantId: Number(e.target.value) })}
+              >
+                <option disabled hidden value="">Pilih opsi</option>
+                {restaurantList && restaurantList.map((item) => {
+                  return (
+                    <option key={item.id} value={item.id}>{item.name}</option>
+                  )
+                })}
+              </select>
+            </div>
           </div>
 
           <div className="mb-3">

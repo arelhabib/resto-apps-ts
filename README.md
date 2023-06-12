@@ -1,6 +1,6 @@
 # Resto Apps TS
 
-[resto-apps](https://github.com/arelhabib/resto-apps) UI views rewritten in React+TS, build with Vite. Probably will rewrite the express app to typescript soon
+[Resto apps](https://github.com/arelhabib/resto-apps) UI views rewritten in React+TS, build with Vite. Probably will rewrite the backend side to typescript soon
 
 <br/>
 

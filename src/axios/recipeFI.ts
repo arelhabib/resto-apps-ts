@@ -1,5 +1,6 @@
 import axios from "axios";
 import API_URL from "../config/config";
+import { recipeForm } from "../dataModel/recipeModel";
 
 const URL = API_URL + '/foods-ingredients'
 
@@ -8,7 +9,7 @@ const getRecipe = async <T>(cb: (result: T) => void) => {
   cb(result.data)
 }
 
-const postRecipe = async (data: object, cb: (result: boolean) => void) => {
+const postRecipe = async (data: recipeForm, cb: (result: boolean) => void) => {
   await axios.post(`${URL}/create`, data)
   cb(true)
 }

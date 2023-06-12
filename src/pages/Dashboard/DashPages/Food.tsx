@@ -38,7 +38,7 @@ const Food = () => {
         <button type="button" className="btn btn-primary fw-bold opacity-75" data-bs-toggle="modal" data-bs-target="#addNew" data-bs-whatever="@mdo">Add New +</button>
       </div>
       <Animated transition="up">
-        <table className="table table-striped table-resto animated-down">
+        <table className="table table-striped table-resto">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -126,12 +126,12 @@ const Food = () => {
                   })}
                 </select>
               </div>
+
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button className="btn btn-primary" type="submit">Create</button>
               </div>
             </form>
-
           </div>
         </div>
       </div>

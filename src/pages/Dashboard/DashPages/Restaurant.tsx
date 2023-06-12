@@ -29,9 +29,8 @@ const Restaurant = () => {
       <div className="col-6 text-end">
         <button type="button" className="btn btn-primary fw-bold opacity-75" data-bs-toggle="modal" data-bs-target="#addNew" data-bs-whatever="@mdo">Add New +</button>
       </div>
-      {/* <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}> */}
       <Animated transition="up">
-        <table className="table table-striped animated-down">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -59,8 +58,6 @@ const Restaurant = () => {
         </table>
       </Animated>
 
-      {/* </motion.div> */}
-
 
       <div className="modal fade" id="addNew" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
@@ -81,12 +78,12 @@ const Restaurant = () => {
                   />
                 </div>
               </div>
+
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button className="btn btn-primary" type="submit">Create</button>
               </div>
             </form>
-
           </div>
         </div>
       </div>

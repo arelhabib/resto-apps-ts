@@ -39,16 +39,19 @@ const Edit = () => {
       <div className="row">
         <div className="col-6 mx-auto">
           <Animated>
-            <h5
-              className="btn"
-              onClick={() => {
-                navigate(-1);
-              }}
-            >
-              <IconContext.Provider value={{ size: "2rem" }}>
-                <BsFillArrowLeftCircleFill />
-              </IconContext.Provider>
-            </h5>
+            <div className="d-flex justify-content-between align-items-center">
+              <h5
+                className="btn"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                <IconContext.Provider value={{ size: "2rem" }}>
+                  <BsFillArrowLeftCircleFill />
+                </IconContext.Provider>
+              </h5>
+              <h5 className="fw-bold lh-lg text-center me-4 ">Editing</h5>
+            </div>
             {locationPage}
           </Animated>
         </div>

@@ -54,7 +54,7 @@ const Recipe = () => {
         <button type="button" className="btn btn-primary fw-bold opacity-75" data-bs-toggle="modal" data-bs-target="#addNew" data-bs-whatever="@mdo">Add New +</button>
       </div>
       <Animated transition="up">
-        <table className="table table-striped table-resto animated-down">
+        <table className="table table-striped table-resto">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -90,7 +90,6 @@ const Recipe = () => {
       </Animated>
 
 
-
       <div className="modal fade" id="addNew" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -98,11 +97,11 @@ const Recipe = () => {
               <h1 className="modal-title fs-5" id="exampleModalLabel">Add New Recipes</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
-              <form onSubmit={(event) => {
-                event.preventDefault()
-                submitHandler()
-              }}>
+            <form onSubmit={(event) => {
+              event.preventDefault()
+              submitHandler()
+            }}>
+              <div className="modal-body">
                 <div className="mb-3">
                   <select className="form-select" id="restaurantId" required defaultValue=""
                     onChange={(e) => setnewForm({ ...newForm, foodId: Number(e.target.value) })}
@@ -116,7 +115,7 @@ const Recipe = () => {
                   </select>
                 </div>
                 <div className="mb-3">
-                  <Select closeMenuOnSelect={false} isMulti={true}
+                  <Select closeMenuOnSelect={false} isMulti={true} placeholder="Choose all appropriate ingredients" required
                     onChange={(e) => setnewForm({
                       ...newForm, ingredientId: e.map((item) => item.value)
                     })}
@@ -126,17 +125,18 @@ const Recipe = () => {
                       })
                     } />
                 </div>
+              </div>
 
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button className="btn btn-primary" type="submit">Create</button>
-                </div>
-              </form>
-
-            </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button className="btn btn-primary" type="submit">Create</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+
+
     </div>
   )
 }

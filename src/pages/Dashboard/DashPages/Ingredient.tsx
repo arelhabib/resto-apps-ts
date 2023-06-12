@@ -30,7 +30,7 @@ const Ingredient = () => {
         <button type="button" className="btn btn-primary fw-bold opacity-75" data-bs-toggle="modal" data-bs-target="#addNew" data-bs-whatever="@mdo">Add New +</button>
       </div>
       <Animated transition="up">
-        <table className="table table-striped animated-down">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -86,12 +86,12 @@ const Ingredient = () => {
                   />
                 </div>
               </div>
+
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button className="btn btn-primary" type="submit">Create</button>
               </div>
             </form>
-
           </div>
         </div>
       </div>

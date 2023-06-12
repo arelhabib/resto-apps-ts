@@ -3,10 +3,12 @@ import { detailRestaurant, editRestaurant } from "../../../axios/restaurant"
 import { restaurantForm } from "../../../dataModel/restaurantModel"
 
 const Restaurant = (props: { itemId: number }) => {
-  const [editForm, seteditForm] = useState({} as restaurantForm)
+  const [editForm, seteditForm] = useState<restaurantForm | null>(null)
 
   const submitHandler = () => {
-    editRestaurant(props.itemId, editForm, (cb) => cb && window.location.replace('/restaurants'))
+    if (editForm) {
+      editRestaurant(props.itemId, editForm, (cb) => cb && window.location.replace('/restaurants'))
+    }
   }
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const Restaurant = (props: { itemId: number }) => {
             <input type="text" value={editForm.name} className="form-control" placeholder="Input Name" id="name"
               onChange={(e) => seteditForm({ ...editForm, name: e.target.value })} />
           </div>
+
           <div className="mb-3">
             <button className="btn btn-primary" type="submit">Update</button>
           </div>

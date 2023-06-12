@@ -1,5 +1,6 @@
 import axios from "axios";
 import API_URL from "../config/config";
+import { ingredientForm } from "../dataModel/ingredientModel";
 
 const URL = API_URL + '/ingredients'
 
@@ -8,7 +9,7 @@ const getIngredient = async <T>(cb: (result: T) => void) => {
   cb(result.data)
 }
 
-const postIngredient = async (data: object, cb: (result: boolean) => void) => {
+const postIngredient = async (data: ingredientForm, cb: (result: boolean) => void) => {
   await axios.post(`${URL}/create`, data)
   cb(true)
 }
@@ -18,7 +19,7 @@ const deleteIngredient = async <T>(id: number, cb: (result: T) => void) => {
   cb(result.data)
 }
 
-const editIngredient = async <T>(id: number, data: object, cb: (result: T) => void) => {
+const editIngredient = async <T>(id: number, data: ingredientForm, cb: (result: T) => void) => {
   const result = await axios.post(`${URL}/edit/${id}`, data)
   cb(result.data)
 }

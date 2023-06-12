@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container animated">
+      <div className="container">
         <Animated>
           <Link className="navbar-brand fw-bold fs-4" to="/">Resto<span className="text-secondary opacity-50">Kita</span></Link>
         </Animated>
@@ -25,7 +25,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 animated">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             {routes.map((route, index) => (
               <li className="nav-item" key={index}>
                 <Animated>
@@ -62,8 +62,6 @@ const Navbar = () => {
                 </div>
               </>}
           </Animated>
-
-
         </div>
 
       </div>

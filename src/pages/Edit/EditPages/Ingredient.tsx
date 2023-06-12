@@ -3,10 +3,12 @@ import { detailIngredient, editIngredient } from "../../../axios/ingredient"
 import { ingredientForm } from "../../../dataModel/ingredientModel"
 
 const Ingredient = (props: { itemId: number }) => {
-  const [editForm, seteditForm] = useState({} as ingredientForm)
+  const [editForm, seteditForm] = useState<ingredientForm | null>(null)
 
   const submitHandler = () => {
-    editIngredient(props.itemId, editForm, (cb) => cb && window.location.replace('/ingredients'))
+    if (editForm) {
+      editIngredient(props.itemId, editForm, (cb) => cb && window.location.replace('/ingredients'))
+    }
   }
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const Ingredient = (props: { itemId: number }) => {
           </div>
           <div className="mb-3">
             <label htmlFor="price">Price</label>
-            <input type="number" value={editForm.price} className="form-control" placeholder="Price only number" name="price" required
+            <input type="number" value={editForm.price} className="form-control" placeholder="Price only number" id="price" required
               onChange={(e) => seteditForm({ ...editForm, price: Number(e.target.value) })}
             />
           </div>
